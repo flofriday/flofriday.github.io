@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://flofriday.github.io/</loc>
+    <lastmod>2021-02-18T09:21:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://flofriday.github.io/posts/lets-build-a-bad-web-search-part-1/</loc>
+    <lastmod>2021-02-18T09:21:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://flofriday.github.io/posts/</loc>
+    <lastmod>2021-02-18T09:21:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://flofriday.github.io/about/</loc>
+  </url>
+  
+  <url>
+    <loc>http://flofriday.github.io/authors/</loc>
+  </url>
+  
+  <url>
+    <loc>http://flofriday.github.io/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>http://flofriday.github.io/series/</loc>
+  </url>
+  
+  <url>
+    <loc>http://flofriday.github.io/tags/</loc>
+  </url>
+  
+</urlset>
