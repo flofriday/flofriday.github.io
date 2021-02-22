@@ -5,28 +5,7 @@
     <link>http://flofriday.github.io/</link>
     <description>Recent content on flofriday</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Mon, 22 Feb 2021 10:07:26 +0100</lastBuildDate><atom:link href="http://flofriday.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Write a simple Web Search Engine</title>
-      <link>http://flofriday.github.io/posts/write-a-simple-web-search-engine/</link>
-      <pubDate>Mon, 22 Feb 2021 10:07:26 +0100</pubDate>
-      
-      <guid>http://flofriday.github.io/posts/write-a-simple-web-search-engine/</guid>
-      <description>A Web Search Engine consists basically of two parts, a crawler that downloads Websites and builds an index on their words, and an application to use for the endusers (usually a webserver) with an query-engine that uses the index created by the crawler.
-In this post we will write a very simple crawler and a minimal webserver that allows the user to find all websites in the index that contain a (single word) searchterm.</description>
-    </item>
-    
-    <item>
-      <title>Let&#39;s build a bad Web Search - Part 1</title>
-      <link>http://flofriday.github.io/posts/lets-build-a-bad-web-search-part-1/</link>
-      <pubDate>Thu, 18 Feb 2021 09:21:00 +0100</pubDate>
-      
-      <guid>http://flofriday.github.io/posts/lets-build-a-bad-web-search-part-1/</guid>
-      <description>In this series we explore how a simple Web Search works (like Google in the 90s). We will use Golang to build the backend, however I will not use too specific Go features or packages and it should be easy to follow along with any other language.
-Extracting Text To create an search-index we first need pure text-file which means we need to extract the text from an HTML file.</description>
-    </item>
-    
+    <language>en</language><atom:link href="http://flofriday.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About flofriday</title>
       <link>http://flofriday.github.io/about/</link>

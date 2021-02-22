@@ -3,31 +3,15 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://flofriday.github.io/</loc>
-    <lastmod>2021-02-22T10:07:26+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://flofriday.github.io/posts/</loc>
-    <lastmod>2021-02-22T10:07:26+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://flofriday.github.io/posts/write-a-simple-web-search-engine/</loc>
-    <lastmod>2021-02-22T10:07:26+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://flofriday.github.io/posts/lets-build-a-bad-web-search-part-1/</loc>
-    <lastmod>2021-02-18T09:21:00+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://flofriday.github.io/about/</loc>
   </url>
   
   <url>
     <loc>http://flofriday.github.io/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>http://flofriday.github.io/</loc>
   </url>
   
   <url>
