@@ -5,12 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>About flofriday | flofriday</title>
+<title>Write a simple Web Search Engine | flofriday</title>
 
 <meta name="keywords" content="" />
-<meta name="description" content="My name is flofriday and I am a Computerscience student at TU Wien (Austria). Interested in all things related to computers from webservers over games to simple scripts. Currently learning about searchengines (like Google)">
+<meta name="description" content="A Web Search Engine consists basically of two parts, a crawler that downloads Websites and builds an index on their words, and an application to use for the endusers (usually a webserver) with an query-engine that uses the index created by the crawler.
+In this post we will write a very simple crawler and a minimal webserver that allows the user to find all websites in the index that contain a (single word) searchterm.">
 <meta name="author" content="">
-<link rel="canonical" href="http://flofriday.github.io/about/" />
+<link rel="canonical" href="http://flofriday.github.io/posts/write-a-simple-web-search-engine/" />
 <link href="/assets/css/stylesheet.min.0e4a1b49e740c28140e9ee4945aab2f86cb0a7bfbf5a5d612d0cb5df7d6141f4.css" integrity="sha256-DkobSedAwoFA6e5JRaqy&#43;Gywp7&#43;/Wl1hLQy1331hQfQ=" rel="preload stylesheet"
     as="style">
 
@@ -24,14 +25,17 @@
 <meta name="generator" content="Hugo 0.80.0" />
 
 
-<meta property="og:title" content="About flofriday" />
-<meta property="og:description" content="My name is flofriday and I am a Computerscience student at TU Wien (Austria). Interested in all things related to computers from webservers over games to simple scripts. Currently learning about searchengines (like Google)" />
+<meta property="og:title" content="Write a simple Web Search Engine" />
+<meta property="og:description" content="A Web Search Engine consists basically of two parts, a crawler that downloads Websites and builds an index on their words, and an application to use for the endusers (usually a webserver) with an query-engine that uses the index created by the crawler.
+In this post we will write a very simple crawler and a minimal webserver that allows the user to find all websites in the index that contain a (single word) searchterm." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://flofriday.github.io/about/" />
-
+<meta property="og:url" content="http://flofriday.github.io/posts/write-a-simple-web-search-engine/" />
+<meta property="article:published_time" content="2021-02-22T10:07:26+01:00" />
+<meta property="article:modified_time" content="2021-02-22T10:07:26+01:00" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="About flofriday"/>
-<meta name="twitter:description" content="My name is flofriday and I am a Computerscience student at TU Wien (Austria). Interested in all things related to computers from webservers over games to simple scripts. Currently learning about searchengines (like Google)"/>
+<meta name="twitter:title" content="Write a simple Web Search Engine"/>
+<meta name="twitter:description" content="A Web Search Engine consists basically of two parts, a crawler that downloads Websites and builds an index on their words, and an application to use for the endusers (usually a webserver) with an query-engine that uses the index created by the crawler.
+In this post we will write a very simple crawler and a minimal webserver that allows the user to find all websites in the index that contain a (single word) searchterm."/>
 
 
 <script type="application/ld+json">
@@ -42,8 +46,14 @@
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "About flofriday",
-      "item": "http://flofriday.github.io/about/"
+      "name": "Posts",
+      "item": "http://flofriday.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Write a simple Web Search Engine",
+      "item": "http://flofriday.github.io/posts/write-a-simple-web-search-engine/"
     }
   ]
 }
@@ -52,20 +62,20 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "About flofriday",
-  "name": "About flofriday",
-  "description": "My name is flofriday and I am a Computerscience student at TU Wien (Austria). Interested in all things related to computers from webservers over games to simple scripts. Currently …",
+  "headline": "Write a simple Web Search Engine",
+  "name": "Write a simple Web Search Engine",
+  "description": "A Web Search Engine consists basically of two parts, a crawler that downloads Websites and builds an index on their words, and an application to use for the endusers (usually a …",
   "keywords": [
     
   ],
-  "articleBody": "My name is flofriday and I am a Computerscience student at TU Wien (Austria). Interested in all things related to computers from webservers over games to simple scripts. Currently learning about searchengines (like Google)\n",
-  "wordCount" : "34",
+  "articleBody": "A Web Search Engine consists basically of two parts, a crawler that downloads Websites and builds an index on their words, and an application to use for the endusers (usually a webserver) with an query-engine that uses the index created by the crawler.\nIn this post we will write a very simple crawler and a minimal webserver that allows the user to find all websites in the index that contain a (single word) searchterm.\nThe goal is not to build anything remotly as powerfull as Google, Bing or DuckDuckGo, but to create a simple codebase to start hacking on. For this blog we will use Python, however it should be easy to follow along with any other language.\nA simple (inverted) index The inverted index is the hearth of every search engine. A normal index (also known as forward index) maps a document to ints content. With a search engine however the user knows a piece of the content and wants to know in which document it appears. An inverted index does exactly that, mapping the content to a list of documents. From now on I will refer to this as just “the index”.\nThe most basic index build be a HashMap(Dictionary) mapping a word to a list of URLs in which it appears.\nThe crawler The webserver Next steps ",
+  "wordCount" : "220",
   "inLanguage": "en",
-  "datePublished": "0001-01-01T00:00:00Z",
-  "dateModified": "0001-01-01T00:00:00Z",
+  "datePublished": "2021-02-22T10:07:26+01:00",
+  "dateModified": "2021-02-22T10:07:26+01:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://flofriday.github.io/about/"
+    "@id": "http://flofriday.github.io/posts/write-a-simple-web-search-engine/"
   },
   "publisher": {
     "@type": "Organization",
@@ -136,7 +146,7 @@
         <ul id="menu" onscroll="menu_on_scroll()">
             <li>
                 <a href="http://flofriday.github.io/about/" title="About">
-                    <span class="active">About</span>
+                    <span>About</span>
                 </a>
             </li></ul>
     </nav>
@@ -148,18 +158,38 @@
   <header class="post-header">
 
     <h1 class="post-title">
-      About flofriday
+      Write a simple Web Search Engine<div class="entry-isdraft"><sup>&nbsp;&nbsp;[draft]</sup></div>
     </h1>
-    <div class="post-meta">1 min
+    <div class="post-meta">February 22, 2021&nbsp;·&nbsp;2 min
 
 </div>
   </header> 
 
   <div class="post-content">
-<p>My name is flofriday and I am a Computerscience student at TU Wien (Austria).
-Interested in all things related to computers from webservers over games to
-simple scripts.
-Currently learning about searchengines (like Google)</p>
+<p><img src="/images/bananasearch1.png" alt="BananaSearchScreenshot"></p>
+<p>A Web Search Engine consists basically of two parts, a crawler that downloads
+Websites and builds an index on their words, and an application to use for the
+endusers (usually a webserver) with an query-engine that uses the index created
+by the crawler.</p>
+<p>In this post we will write a very simple crawler and a minimal webserver that
+allows the user to find all websites in the index that contain a (single word)
+searchterm.</p>
+<p>The goal is not to build anything remotly as powerfull as Google, Bing or
+DuckDuckGo, but to create a simple codebase to start hacking on. For this blog
+we will use <a href="https://www.python.org/">Python</a>, however it should be easy to follow
+along with any other language.</p>
+<h1 id="a-simple-inverted-index">A simple (inverted) index<a hidden class="anchor" aria-hidden="true" href="#a-simple-inverted-index">#</a></h1>
+<p>The <a href="https://en.wikipedia.org/wiki/Inverted_index">inverted index</a>
+is the hearth of every search engine. A normal index (also
+known as forward index) maps a document to ints content. With a search engine
+however the user knows a piece of the content and wants to know in which
+document it appears. An inverted index does exactly that, mapping the content to
+a list of documents. From now on I will refer to this as just &ldquo;the index&rdquo;.</p>
+<p>The most basic index build be a HashMap(Dictionary) mapping a word to a list of
+URLs in which it appears.</p>
+<h1 id="the-crawler">The crawler<a hidden class="anchor" aria-hidden="true" href="#the-crawler">#</a></h1>
+<h1 id="the-webserver">The webserver<a hidden class="anchor" aria-hidden="true" href="#the-webserver">#</a></h1>
+<h1 id="next-steps">Next steps<a hidden class="anchor" aria-hidden="true" href="#next-steps">#</a></h1>
 
 </div>
   <footer class="post-footer">

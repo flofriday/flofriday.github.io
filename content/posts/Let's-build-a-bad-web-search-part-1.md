@@ -1,12 +1,12 @@
 ---
 title: "Let's build a bad Web Search - Part 1"
 date: 2021-02-18 09:21:00 +0100
-draft: false
+draft: true
 disableComments: true
 ---
 
 In this series we explore how a simple Web Search works (like Google in the 90s).
-We will use [Go](https://golang.org/) to build the backend, however I
+We will use [Golang](https://golang.org/) to build the backend, however I
 will not use too specific Go features or packages and it should be easy to
 follow along with any other language.
 
