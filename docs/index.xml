@@ -5,7 +5,18 @@
     <link>http://flofriday.github.io/</link>
     <description>Recent content on flofriday</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="http://flofriday.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Thu, 25 Feb 2021 00:14:36 +0100</lastBuildDate><atom:link href="http://flofriday.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Write a simple Web Search Engine</title>
+      <link>http://flofriday.github.io/posts/write-a-simple-web-search-engine/</link>
+      <pubDate>Thu, 25 Feb 2021 00:14:36 +0100</pubDate>
+      
+      <guid>http://flofriday.github.io/posts/write-a-simple-web-search-engine/</guid>
+      <description>A Web Search Engine consists basically of two parts, a crawler that downloads Websites and builds an index on their words, and an application to use for the endusers (usually a webserver) with an query-engine that uses the index created by the crawler.
+In this post we will write a very simple crawler and a minimal webserver that allows the user to find all websites in the index that contain a (single word) searchterm.</description>
+    </item>
+    
     <item>
       <title>About flofriday</title>
       <link>http://flofriday.github.io/about/</link>

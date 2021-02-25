@@ -1,6 +1,5 @@
 baseurl = "http://flofriday.github.io"
 title = "flofriday"
-#theme = "hugo-coder"
 theme= "PaperMod"
 languagecode = "en"
 defaultcontentlanguage = "en"

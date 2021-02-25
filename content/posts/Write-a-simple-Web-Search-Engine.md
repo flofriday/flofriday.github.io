@@ -1,7 +1,7 @@
 ---
 title: "Write a simple Web Search Engine"
 date: Thu Feb 25 00:14:36 CET 2021
-draft: true
+draft: false
 disableComments: true
 ---
 
