@@ -171,7 +171,7 @@ adds them to a waitingqueue and then repeats with new URL from the queue.
 This way of discovering new websites works quite well, actually it works too
 good. For example the [Linux Wikipedia](https://en.wikipedia.org/wiki/Linux)
 page has over 1700 hyperlinks, if each of them has again 1700 links we would
-have visited over three milion websites. While this example might be somewhat
+have visited almost three milion websites. While this example might be somewhat
 extreme, it shows the point that we need to limit the crawler artificially.
 
 There are some quite creative ways to limit the crawler. For example we could
@@ -182,28 +182,107 @@ For now, however, we will only limit the number of websited the crawler can visi
 So with that said our main loop looks something like that:
 
 ```Go {linenos=true}
-index := index.New()
-queue := []string{"https://en.wikipedia.org/wiki/Linux"}
-visited := make(map[string]bool)
-limit := 100
+// cmd/crawler/main.go
 
-for len(visited) < limit && len(queue) > 0 {
-    url, queue := queue[0], queue[1:]
-    if _, ok := visitied(url); ok {
-        // already visited that url
-        continue
-    }
+func main() {
+	index := index.New()
+	queue := []string{"https://en.wikipedia.org/wiki/Linux"}
+	visited := make(map[string]bool)
+	limit := 100
+	client := http.Client{
+		Timeout: time.Second * 10,
+	}
 
-    body, err := download(url)
-    if err != nil {
-        continue
-    }
+	for len(visited) < limit && len(queue) > 0 {
+		url, queue := queue[0], queue[1:]
+		if _, ok := visited[url]; ok {
+			// already visited that url
+			continue
+		}
 
-    visited[url] = true
-    links, words := extractData(body)
+		resp, err := client.Get(url)
+		if err != nil {
+			log.Printf("Unable to download %s: %s", url, err.Error())
+			continue
+		}
+		defer resp.Body.Close()
+		log.Printf("Downloaded %s", url)
 
-    index.addDoc(url, words)
-    queue = append(queue, links)
+		visited[url] = true
+		links, words := extractData(url, resp.Body)
+
+		index.addDoc(url, words)
+		queue = append(queue, links...)
+	}
+}
+```
+
+In this code snipet we used a new function we haven't talked about:
+`extractData()`. This function extracts hyperlinks and text from a webpage.
+Unfortunatly this means we need to parse HTML which is non-trivial and correct
+parsing would exceed the limit of this blog. Luckily this problem is quite
+common and there are libraries for almost any programming language that
+can parse HTML:
+
+- `Golang`: [goquery](https://github.com/PuerkitoBio/goquery)
+- `Python`: [beautifulsoup4](https://pypi.org/project/beautifulsoup4/)
+- `Node.js`: [jsdom](https://github.com/jsdom/jsdom)
+- `Rust`: [html5ever](https://github.com/servo/html5ever)
+
+If you cannot find a library or don't want to use the one, you can still
+achive the most basic results with regular expressions.
+
+With goquery the extract function the complete crawler looks something like
+this:
+
+```Go {linenos=true}
+// cmd/crawler/main.go
+package main
+
+import (
+	"io"
+	"log"
+	"net/http"
+	"net/url"
+	"strings"
+	"time"
+
+	"github.com/PuerkitoBio/goquery"
+	"github.com/flofriday/websearchblog/index" // Change this line
+)
+
+func extractData(baseUrl string, body io.Reader) ([]string, []string) {
+	base, _ := url.Parse(baseUrl)
+	doc, err := goquery.NewDocumentFromReader(body)
+	if err != nil {
+		return []string{}, []string{}
+	}
+
+	links := []string{}
+	doc.Find("a").Each(func(i int, el *goquery.Selection) {
+		href, exists := el.Attr("href")
+		if !exists {
+			return
+		}
+		link, err := url.Parse(href)
+		if err != nil {
+			return
+		}
+		link = base.ResolveReference(link)
+		link.Fragment = ""
+		links = append(links, link.String())
+	})
+
+	doc.Find("script style").Each(func(i int, el *goquery.Selection) {
+		el.Remove()
+	})
+
+	words := strings.Fields(doc.Text())
+	return links, words
+}
+
+func main() {
+    ...
 }
 ```
 
